@@ -29,11 +29,20 @@
 // gateway and subnet are optional:
 byte mac[] = {
   0x00, 0xAA, 0xBB, 0xCC, 0xDE, 0x02
-};
+/*};
 IPAddress ip(192, 168, 1, 177);
 IPAddress myDns(192, 168, 1, 1);
 IPAddress gateway(192, 168, 1, 1);
-IPAddress subnet(255, 255, 255, 0);
+IPAddress subnet(255, 255, 255, 0);*/
+   #define STATIC 0  // set to 1 to disable DHCP (adjust myip/gwip values below)
+
+#if STATIC
+// ethernet interface ip address
+static byte myip[] = { 192,168,1,200 };
+// gateway ip address
+static byte gwip[] = { 192,168,1,1 };
+#endif
+
 
 // telnet defaults to port 23
 EthernetServer server(80);
@@ -41,12 +50,12 @@ boolean gotAMessage = false; // whether or not you got a message from the client
 
 void setup() {
   // You can use Ethernet.init(pin) to configure the CS pin
-  Ethernet.init(10);  // Most Arduino shields
-  Ethernet.init(5);   // MKR ETH shield
-  Ethernet.init(0);   // Teensy 2.0
-  Ethernet.init(20);  // Teensy++ 2.0
-  Ethernet.init(15);  // ESP8266 with Adafruit Featherwing Ethernet
-  Ethernet.init(33);  // ESP32 with Adafruit Featherwing Ethernet
+ // Ethernet.init(10);  // Most Arduino shields
+ // Ethernet.init(5);   // MKR ETH shield
+ // Ethernet.init(0);   // Teensy 2.0
+ // Ethernet.init(20);  // Teensy++ 2.0
+  //Ethernet.init(15);  // ESP8266 with Adafruit Featherwing Ethernet
+ // Ethernet.init(33);  // ESP32 with Adafruit Featherwing Ethernet
 
   // Open serial communications and wait for port to open:
   Serial.begin(9600);
