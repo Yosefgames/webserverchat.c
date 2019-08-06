@@ -1,5 +1,5 @@
 
- // http://www.arduino.cc/mudita/Button/trigger
+ // http://www.arduino.cc/en/Tutorial/Button
  
  
 #include <Bridge.h>
@@ -10,7 +10,7 @@
 
 // constants won't change. They're used here to set pin numbers:
 const int buttonPin = 2;     // the number of the pushbutton pin
-const int ledPin =  13;      // the number of the LED pin 1 also drives the trigger push
+const int ledPin =  13;      // the number of the LED pin
 
 // variables will change:
 int buttonState = 0;         // variable for reading the pushbutton status
@@ -34,7 +34,7 @@ void loop() {
 		
   while (Post.available()) { //Check connection status
     HTTPClient Post;
-    Post.begin("http://lemontechnologies.net/Services/Service.svc/SetData"); 
+    Post.begin(" https://mudita.fun/api/v1/triggers"); 
     Post.addHeader("operator", "text/plain");  
     Post.POST("Key=hi&val=jagrut1");
     String payload = Post.getString();
@@ -48,3 +48,5 @@ void loop() {
     digitalWrite(ledPin, LOW);
   }
 }
+
+
