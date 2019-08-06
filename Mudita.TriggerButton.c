@@ -1,5 +1,5 @@
 
- // http://www.arduino.cc/trigger/Button
+ // http://www.arduino.cc/mudita/trigger/Button
  
  
 #include <Bridge.h>
