@@ -1,5 +1,5 @@
 
- // http://www.arduino.cc/en/Tutorial/Button
+ // http://www.arduino.cc/trigger/Button
  
  
 #include <Bridge.h>
@@ -48,5 +48,4 @@ void loop() {
     digitalWrite(ledPin, LOW);
   }
 }
-
 
